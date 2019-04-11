@@ -7,19 +7,27 @@ package com.mkyong.rest;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.core.Response;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 @Path("/hello")
 public class HelloWorldService {
 
-	@GET
-	@Path("/{param}")
-	public Response getMsg(@PathParam("param") String msg) {
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String iterar() {
 
-		String output = "Jersey say : " + msg;
-		return Response.status(200).entity(output).build();
+        int n = 1000000000;
+        long num = (long) (Math.random() * n) + 1;
+        System.out.println("El número es: " + num + ".");
+        System.out.println("Comenzamos a iterar.");
 
-	}
+        for (int i = 0; i < (long) num; i++) {
+
+        }
+
+        return "Terminé de Iterar hasta " + num + ".";
+
+    }
 
 }
